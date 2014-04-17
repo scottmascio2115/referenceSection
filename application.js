@@ -14,7 +14,7 @@
         }
         else
           {
-      $( "body" ).append("<li id="+i+">"+"<sup>"+"[" + i + "]"+"</sup>"+ " "+href+ ":" + " " + "Description Not Found" + "</li>");
+      $( "body" ).append("<li id="+i+">"+ "<a href="+"#"+i+"b"+">"+"<sup>"+"[" + i + "]"+"</sup>"+ "</a>" + " "+href+ ":" + " " + "Description Not Found" + "</li>");
           }
 
       $("li").css("list-style-type", "none");
