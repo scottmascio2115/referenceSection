@@ -7,10 +7,10 @@
       var link = $( this );
       var href = link.attr("href");
       var info = $( this).data('info');
-      link.after(" "+ "<a href="+"#"+i+">" + "<sup>" + "[" + i + "]"+ "</sup>" + "</a>");
+      link.after(" "+ "<a href="+"#"+i+">" + "<sup id="+i+"b"+">" + "[" + i + "]"+ "</sup>" + "</a>");
       if ( info !== undefined)
         {
-      $( "body" ).append("<li id="+i+">"+"<sup>"+"[" + i + "]"+"</sup>"+ " "+href+ ":" + " " +info+ "</li>");
+      $( "body" ).append("<li id="+i+">"+ "<a href="+"#"+i+"b"+">" + "<sup>"+"[" + i + "]"+"</sup>"+ "</a>" + " "+href+ ":" + " " +info+ "</li>");
         }
         else
           {
