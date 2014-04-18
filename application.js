@@ -2,7 +2,7 @@
   $.fn.reference = function() {
 
     function info_dom(info, index) {
-      var description = description === undefined ? 'Description Not Found': description;
+      var description = info.description === undefined ? 'Description Not Found': info.description;
       var href = info.href;
 
       var li = $('<li>', { id:index, text: " " + href +': '});
