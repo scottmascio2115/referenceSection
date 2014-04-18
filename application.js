@@ -1,46 +1,55 @@
 (function($){
   $.fn.reference = function() {
+
+    function info_dom(info, index) {
+      var description = description === undefined ? 'Description Not Found': description;
+      var href = info.href;
+
+      var li = $('<li>', { id:index, text: " " + href +': '});
+      var dom = li.append(description);
+      var a = $('<a>', { href: '#' +index+ 'b'});
+      var sup = $('<sup>', { text: '[' +index+ ']'});
+
+      a.append(sup);
+      dom.prepend(a);
+
+      return dom;
+    };
+
+    function info_span(info){
+      var span;
+
+      if ( info !== undefined) {
+        span = $('<span>', { text: info });
+      }
+      return span;
+    };
+
     var i = 1
-    $( "body" ).append("<hr><h3 id='reference'>Reference Section</h3>");
-    $("#reference").css("text-align", "center");
 
     this.find( "a" ).each(function() {
-      var link = $( this );
-      var href = link.attr("href");
-      var info = $( this).data('info');
-      link.after(" "+ "<a href="+"#"+i+">" + "<sup id="+i+"b"+">" + "[" + i + "]"+ "</sup>" + "</a>");
+      var aTag = $('<a>', { href: "#"+i });
+      var supTag = $('<sup>', { id: i+ "b", text: "[" +i+ "]"});
+      aTag.append(supTag);
+      $(this).after(aTag);
 
-      if ( info !== undefined)
-        {
-          $( "body" ).append("<li id="+i+">"+ "<a href="+"#"+i+"b"+">"+ "<sup>"+"[" + i + "]"+"</sup>"
-                             + "</a>" + " "+href+ ":" + " " +info+ "</li>");
-        }
-        else
-          {
-            $( "body" ).append("<li id="+i+">"+ "<a href="+"#"+i+"b"+">"+"<sup>"+"[" + i + "]"+"</sup>"
-                               + "</a>" + " "+href+ ":" + " " + "Description Not Found" + "</li>");
-          }
+      info = { href: $(this).attr("href"), description: $( this).data('info')}
+      var dom = info_dom(info, i);
+      $( "body").append(dom);
 
-          $("li").css("list-style-type", "none");
-          ++i;
+      ++i;
     });
 
     $("sup").hover(
       function() {
       var parents_sibling = $( this).parent().prev('a');
       var data = parents_sibling.data('info');
-
-      if ( data !== undefined)
-        {
-          $( this ).append( $( "<span>" +data+ "</span>" ) );
-          $('span').css({'position': 'absolute', 'border': '1px solid black', 'background-color': 'beige',
-                        'color': 'black', 'border-radius': '25px', 'padding': '5px'});
-        }
+      var span = info_span(data);
+      $(this).append(span);
 
     },function() {
       $( this ).find( "span:last" ).remove();
     });
-
     return this;
   };}(jQuery));
 
