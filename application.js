@@ -4,7 +4,7 @@
     $( "body" ).append("<hr><h3 id='reference'>Reference Section</h3>");
     $("#reference").css("text-align", "center");
 
-    this.filter( "a" ).each(function() {
+    this.find( "a" ).each(function() {
       var link = $( this );
       var href = link.attr("href");
       var info = $( this).data('info');
@@ -45,5 +45,5 @@
   };}(jQuery));
 
   $( document ).ready(function() {
-    $( "a" ).reference();
+    $("body").reference();
   });
