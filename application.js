@@ -8,9 +8,9 @@
       var li = $('<li>', { id:index, text: " " + href +': '});
       var dom = li.append(description);
       var a = $('<a>', { href: '#' +index+ 'b'});
-      var sup = $('<sup>', { text: '[' +index+ ']'});
+      var super_script = $('<sup>', { text: '[' +index+ ']'});
 
-      a.append(sup);
+      a.append(super_script);
       dom.prepend(a);
 
       return dom;
