@@ -1,5 +1,5 @@
 (function($){
-  $.fn.reference = function() {
+  $.fn.referenceSection = function() {
 
     function info_dom(info, index) {
       var description = info.description === undefined ? 'Description Not Found': info.description;
@@ -19,7 +19,7 @@
     function info_span(info){
       var span;
 
-      if ( info !== undefined) {
+      if ( info !== undefined && info !== null ) {
         span = $('<span>', { text: info });
       }
       return span;
@@ -54,5 +54,5 @@
   };}(jQuery));
 
   $( document ).ready(function() {
-    $("body").reference();
+    $("body").referenceSection();
   });
