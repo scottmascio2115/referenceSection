@@ -1,0 +1,32 @@
+{
+  "name": "referencesection",
+  "title": "jQuery referenceSection",
+  "description": "jQuery plugin to add a reference section with description of selected elements, description shown on hover.",
+  "keywords": [
+    "reference",
+    "hover",
+    "bibliography"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "Scott Mascio and other contributors",
+    "url": "https://github.com/scottmascio2115/referenceSection"
+  },
+  "maintainers": [
+    {
+    "name": "Scott Mascio",
+    "url": "http://www.scottmascio.com/"
+  }
+  ],
+  "licenses": [
+    {
+    "type": "MIT",
+    "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+  }
+  ],
+  "homepage": "https://github.com/scottmascio2115/referenceSection",
+  "demo": "http://referencesection.herokuapp.com/",
+  "dependencies": {
+    "jquery": ">=1.4.x"
+  }
+}
