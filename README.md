@@ -9,3 +9,8 @@ jQuery plugin to add a reference section to page with a description of each of t
 For a demo please visit:
 
 http://referencesection.herokuapp.com/
+
+jQuery Registry:
+
+https://plugins.jquery.com/referencesection/
+
