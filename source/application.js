@@ -16,18 +16,18 @@
       return dom;
     };
 
-    function info_span(info){
-      var span;
+    function info_attachment(info){
+      var attachment;
 
       if ( info !== undefined && info !== null ) {
-        span = $('<span>', { text: info });
+        attachment = $('<h5>', { text: info });
       }
-      return span;
+      return attachment;
     };
 
     var i = 1
 
-    this.find( "a" ).each(function() {
+    this.find( ".rs" ).each(function() {
       var aTag = $('<a>', { href: "#"+i });
       var supTag = $('<sup>', { id: i+ "b", text: "[" +i+ "]"});
       aTag.append(supTag);
@@ -44,11 +44,11 @@
       function() {
       var parents_sibling = $( this).parent().prev('a');
       var data = parents_sibling.data('info');
-      var span = info_span(data);
-      $(this).append(span);
+      var attachment = info_attachment(data);
+      $(this).append(attachment);
 
     },function() {
-      $( this ).find( "span:last" ).remove();
+      $( this ).find( "h5:last" ).remove();
     });
     return this;
   };}(jQuery));
