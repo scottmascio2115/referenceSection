@@ -1,7 +1,7 @@
 {
   "name": "referencesection",
   "title": "jQuery referenceSection",
-  "description": "jQuery plugin to add a reference section with description of selected elements, description shown on hover.",
+  "description": "jQuery plugin to add a reference section to page with a description of each of the selected elements. The description is also shown on the hover of element.",
   "keywords": [
     "reference",
     "hover",
