@@ -2,10 +2,10 @@
   $.fn.referenceSection = function() {
 
     function info_dom(info, index) {
-      var description = info.description === undefined ? 'Description Not Found': info.description;
-      var href = info.href;
+      var description = present(info.description) ? 'Description Not Found': info.description;
+      var label = present(info.href) ? info.text: info.href;
 
-      var li = $('<li>', { id:index, text: " " + href +': '});
+      var li = $('<li>', { id:index, text: " " + label +': '});
       var dom = li.append(description);
       var a = $('<a>', { href: '#' +index+ 'b'});
       var super_script = $('<sup>', { text: '[' +index+ ']'});
@@ -19,10 +19,14 @@
     function info_attachment(info){
       var attachment;
 
-      if ( info !== undefined && info !== null ) {
+      if ( !present(info)) {
         attachment = $('<h5>', { text: info });
       }
       return attachment;
+    };
+
+    function present(val){
+      return val === undefined || val === null
     };
 
     var i = 1
@@ -33,7 +37,7 @@
       aTag.append(supTag);
       $(this).after(aTag);
 
-      info = { href: $(this).attr("href"), description: $( this).data('info')}
+      info = { href: $(this).attr('href'), description: $( this).data('info'), text: $(this).text()}
       var dom = info_dom(info, i);
       $( "body").append(dom);
 
@@ -42,7 +46,7 @@
 
     $("sup").hover(
       function() {
-      var parents_sibling = $( this).parent().prev('a');
+      var parents_sibling = $( this).parent().prev();
       var data = parents_sibling.data('info');
       var attachment = info_attachment(data);
       $(this).append(attachment);
